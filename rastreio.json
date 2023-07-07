@@ -1,82 +1,91 @@
 {
-    "versao": "1.8.7",
-    "quantidade": 1,
-    "resultado": "Todos os Eventos",
-    "objetos": [
-        {
-            "codObjeto": "DG049186226BR",
-            "tipoPostal": {
-                "sigla": "DG",
-                "descricao": "ENCOMENDA SEDEX (ETIQ LOGICA)",
-                "categoria": "SEDEX"
-            },
-            "dtPrevista": "2022-03-11T20:58:00",
-            "modalidade": "F",
-            "peso": 0.5,
-            "formato": "Pacote",
-            "eventos": [
-                {
-                    "codigo": "BDE",
-                    "tipo": "01",
-                    "dtHrCriado": "2022-03-11T17:03:00",
-                    "descricao": "Objeto entregue ao destinatário",
-                    "unidade": {
-                        "tipo": "Unidade de Atendimento",
-                        "endereco": {
-                            "uf": "AC",
-                            "cidade": "XAPURI"
-                        }
-                    }
+    "objetos":[
+       {
+          "codObjeto":"NL674692424BR",
+          "eventos":[
+             {
+                "codigo":"RO",
+                "descricao":"Objeto em trânsito - por favor aguarde",
+                "dtHrCriado":"2023-07-04T11:28:19",
+                "tipo":"01",
+                "unidade":{
+                   "endereco":{
+                      "cidade":"CURITIBA",
+                      "uf":"PR"
+                   },
+                   "tipo":"Unidade de Logística Integrada"
                 },
-                {
-                    "codigo": "OEC",
-                    "tipo": "03",
-                    "dtHrCriado": "2022-03-11T17:02:45",
-                    "descricao": "Objeto em rota de entrega",
-                    "detalhe": "Aguarde envio de link para acompanhar a entrega em tempo real\r\n",
-                    "unidade": {
-                        "tipo": "Unidade de Tratamento",
-                        "endereco": {
-                            "uf": "SP",
-                            "cidade": "SAO PAULO"
-                        }
-                    }
+                "unidadeDestino":{
+                   "endereco":{
+                      "bairro":"NOVA ESPERANCA",
+                      "cep":"41400977",
+                      "cidade":"SALVADOR",
+                      "logradouro":"VIA BA-535",
+                      "numero":"991",
+                      "uf":"BA"
+                   },
+                   "nome":"CTCE SALVADOR",
+                   "tipo":"TCE"
                 },
-                {
-                    "codigo": "RO",
-                    "tipo": "01",
-                    "dtHrCriado": "2022-03-11T17:02:35",
-                    "descricao": "Objeto em trânsito",
-                    "detalhe": "Por favor, aguarde",
-                    "unidade": {
-                        "tipo": "Unidade de Distribuição",
-                        "endereco": {
-                            "uf": "DF",
-                            "cidade": "BRASILIA"
-                        }
-                    },
-                    "unidadeDestino": {
-                        "tipo": "Unidade de Tratamento",
-                        "endereco": {
-                            "uf": "GO",
-                            "cidade": "APARECIDA DE GOIANIA"
-                        }
-                    }
+                "urlIcone":"/public-resources/img/caminhao-cor.png"
+             },
+             {
+                "codigo":"PAR",
+                "descricao":"Fiscalização aduaneira finalizada",
+                "dtHrCriado":"2023-07-04T11:28:18",
+                "tipo":"10",
+                "unidade":{
+                   "endereco":{
+                      "cidade":"CURITIBA",
+                      "uf":"PR"
+                   },
+                   "tipo":"Unidade de Logística Integrada"
                 },
-                {
-                    "codigo": "PO",
-                    "tipo": "01",
-                    "dtHrCriado": "2022-03-10T19:10:36",
-                    "descricao": "Objeto postado",
-                    "unidade": {
-                        "tipo": "Unidade de Atendimento",
-                        "endereco": {
-                            "uf": "SP",
-                            "cidade": "SAO PAULO"
-                        }
-                    }
-                }
-            ]
-        }
-    ]
-}
+                "urlIcone":"/public-resources/img/verificar-documento-cor.png"
+             },
+             {
+                "codigo":"PAR",
+                "descricao":"Objeto recebido pelos Correios do Brasil",
+                "dtHrCriado":"2023-07-04T10:06:21",
+                "tipo":"16",
+                "unidade":{
+                   "endereco":{
+                      "cidade":"CURITIBA",
+                      "uf":"PR"
+                   },
+                   "tipo":"Unidade de Logística Integrada"
+                },
+                "urlIcone":"/public-resources/img/brazil.png"
+             },
+             {
+                "codigo":"PO",
+                "descricao":"Objeto postado",
+                "dtHrCriado":"2023-06-30T04:00:19",
+                "tipo":"01",
+                "unidade":{
+                   "endereco":{},
+                   "nome":"CHINA",
+                   "tipo":"País"
+                },
+                "urlIcone":"/public-resources/img/agencia-cor.png"
+             }
+          ],
+          "tipoPostal":{
+             "categoria":"PACKET STANDARD IMPORTAÇÃO",
+             "descricao":"CORREIOS PACKET STANDARD",
+             "sigla":"NL"
+          },
+          "habilitaAutoDeclaracao":false,
+          "permiteEncargoImportacao":false,
+          "habilitaPercorridaCarteiro":false,
+          "bloqueioObjeto":false,
+          "possuiLocker":false,
+          "habilitaLocker":false,
+          "habilitaCrowdshipping":false,
+          "temServicoAr":false
+       }
+    ],
+    "quantidade":1,
+    "resultado":"Todos os Eventos",
+    "versao":"3.1.13"
+ }
