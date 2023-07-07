@@ -1,4 +1,3 @@
-from Rastreio import Rastreio
 from Correios import Correios
 
 def get_codigos():
@@ -12,4 +11,5 @@ if __name__ == '__main__':
     
     for codigo in codigos:
         rastreio = correios.get_rastreio(f'{codigo}')
+        print(rastreio.check_change(f'rastreios/{rastreio.objetos[0].codObjeto}.json'))
         rastreio.save_rastreio()
