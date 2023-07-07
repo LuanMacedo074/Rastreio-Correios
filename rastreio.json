@@ -1,0 +1,82 @@
+{
+    "versao": "1.8.7",
+    "quantidade": 1,
+    "resultado": "Todos os Eventos",
+    "objetos": [
+        {
+            "codObjeto": "DG049186226BR",
+            "tipoPostal": {
+                "sigla": "DG",
+                "descricao": "ENCOMENDA SEDEX (ETIQ LOGICA)",
+                "categoria": "SEDEX"
+            },
+            "dtPrevista": "2022-03-11T20:58:00",
+            "modalidade": "F",
+            "peso": 0.5,
+            "formato": "Pacote",
+            "eventos": [
+                {
+                    "codigo": "BDE",
+                    "tipo": "01",
+                    "dtHrCriado": "2022-03-11T17:03:00",
+                    "descricao": "Objeto entregue ao destinatário",
+                    "unidade": {
+                        "tipo": "Unidade de Atendimento",
+                        "endereco": {
+                            "uf": "AC",
+                            "cidade": "XAPURI"
+                        }
+                    }
+                },
+                {
+                    "codigo": "OEC",
+                    "tipo": "03",
+                    "dtHrCriado": "2022-03-11T17:02:45",
+                    "descricao": "Objeto em rota de entrega",
+                    "detalhe": "Aguarde envio de link para acompanhar a entrega em tempo real\r\n",
+                    "unidade": {
+                        "tipo": "Unidade de Tratamento",
+                        "endereco": {
+                            "uf": "SP",
+                            "cidade": "SAO PAULO"
+                        }
+                    }
+                },
+                {
+                    "codigo": "RO",
+                    "tipo": "01",
+                    "dtHrCriado": "2022-03-11T17:02:35",
+                    "descricao": "Objeto em trânsito",
+                    "detalhe": "Por favor, aguarde",
+                    "unidade": {
+                        "tipo": "Unidade de Distribuição",
+                        "endereco": {
+                            "uf": "DF",
+                            "cidade": "BRASILIA"
+                        }
+                    },
+                    "unidadeDestino": {
+                        "tipo": "Unidade de Tratamento",
+                        "endereco": {
+                            "uf": "GO",
+                            "cidade": "APARECIDA DE GOIANIA"
+                        }
+                    }
+                },
+                {
+                    "codigo": "PO",
+                    "tipo": "01",
+                    "dtHrCriado": "2022-03-10T19:10:36",
+                    "descricao": "Objeto postado",
+                    "unidade": {
+                        "tipo": "Unidade de Atendimento",
+                        "endereco": {
+                            "uf": "SP",
+                            "cidade": "SAO PAULO"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
