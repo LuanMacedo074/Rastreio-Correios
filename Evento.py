@@ -10,3 +10,14 @@ class Evento:
         self.unidade = unidade
         self.unidadeDestino = unidadeDestino
         self.urlIcone = urlIcone
+
+    def to_dict(self):
+        return {
+            'codigo': self.codigo,
+            'tipo': self.tipo,
+            'dtHrCriado': self.dtHrCriado,
+            'descricao': self.descricao,
+            'unidade': self.unidade,
+            'unidadeDestino': self.unidadeDestino,
+            'urlIcone': self.urlIcone
+        }

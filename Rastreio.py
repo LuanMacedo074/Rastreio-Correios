@@ -3,13 +3,20 @@ from typing import List
 from Objeto import Objeto
 from Evento import Evento
 
-
 class Rastreio:
     def __init__(self, versao: str, quantidade: int, resultado: str, objetos: List[Objeto]):
         self.versao = versao
         self.quantidade = quantidade
         self.resultado = resultado
         self.objetos = objetos
+
+    def to_dict(self):
+        return{
+        'objetos': [objeto.to_dict() for objeto in self.objetos],
+        'versao': self.versao,
+        'quantidade': self.quantidade,
+        'resultado': self.resultado
+        }
 
     @classmethod
     def from_json(cls, json_string: str):
@@ -44,4 +51,15 @@ class Rastreio:
         resultado = json_data['resultado']
 
         return cls(versao, quantidade, resultado, objetos)
+    
+    def save_rastreio(self):
+        data = self.to_dict()
+        nome_arquivo = f'./rastreios/{self.objetos[0].codObjeto}.json'
+
+        with open(nome_arquivo, "w") as arquivo:
+            arquivo.write(json.dumps(data, indent = 4))
+
+       
+
+
 
