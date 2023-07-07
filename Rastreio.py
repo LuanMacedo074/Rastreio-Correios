@@ -2,6 +2,7 @@ import json
 from typing import List
 from Objeto import Objeto
 from Evento import Evento
+import os
 
 class Rastreio:
     def __init__(self, versao: str, quantidade: int, resultado: str, objetos: List[Objeto]):
@@ -52,14 +53,33 @@ class Rastreio:
 
         return cls(versao, quantidade, resultado, objetos)
     
-    def save_rastreio(self):
+    def save_rastreio(self) -> None:
         data = self.to_dict()
         nome_arquivo = f'./rastreios/{self.objetos[0].codObjeto}.json'
 
         with open(nome_arquivo, "w") as arquivo:
             arquivo.write(json.dumps(data, indent = 4))
 
-       
+    def check_change(self, path: str) -> str:
+        if not os.path.exists(path):
+            return (f'''O Objeto {self.objetos[0].codObjeto} teve a última movimentação em:
+                    Saida: {self.objetos[0].eventos[0].unidade['endereço']['cidade']}
+                    Destino: {self.objetos[0].eventos[0].unidadeDestino['endereço']['cidade'] if 
+                                'unidadeDestino' in self.objetos[0].eventos[0] else "Sem Destino" }''')
+
+
+        with open(path, 'r')as arquivo:
+            old = json.loads(arquivo.read())
+
+        if (hash(frozenset(self.to_dict())) == hash(frozenset(old))):
+            return (f'o Objeto {self.objetos[0].codObjeto} não teve alterações desde o último rastreio')
+    
+        return (f'''O Objeto {self.objetos[0].codObjeto} teve a última movimentação em:
+                Saida: {self.objetos[0].eventos[0].unidade['endereço']['cidade']}
+                Destino: {self.objetos[0].eventos[0].unidadeDestino['endereço']['cidade'] if 
+                            'unidadeDestino' in self.objetos[0].eventos[0] else "Sem Destino" }''')
+
+    
 
 
 
