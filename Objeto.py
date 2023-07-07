@@ -16,3 +16,18 @@ class Objeto:
         self.habilitaCrowdshipping = habilitaCrowdshipping
         self.temServicoAr = temServicoAr
         self.eventos = eventos
+
+    def to_dict(self):
+      return {
+              'codObjeto': self.codObjeto,
+              'eventos': [evento.to_dict() for evento in self.eventos],
+              'tipoPostal': self.tipoPostal,
+              'habilitaAutoDeclaracao': self.habilitaAutoDeclaracao,
+              'permiteEncargoImportacao': self.permiteEncargoImportacao,
+              'habilitaPercorridaCarteiro': self.habilitaPercorridaCarteiro,
+              'bloqueioObjeto': self.bloqueioObjeto,
+              'possuiLocker': self.possuiLocker,
+              'habilitaLocker': self.habilitaLocker,
+              'habilitaCrowdshipping': self.habilitaCrowdshipping,
+              'temServicoAr': self.temServicoAr
+      }
