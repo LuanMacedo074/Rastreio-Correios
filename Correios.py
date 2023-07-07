@@ -13,7 +13,6 @@ class Correios:
     def __init__(self):
         self.token = self._get_token('config.ini')
         self.data = self._get_data()
-        self.get_rastreio('TG637457002BR')
     	
     def _get_data(self) -> str:
         return datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%Y %H:%M:%S')
@@ -34,7 +33,7 @@ class Correios:
 
         return hash_object.hexdigest()
     
-    def get_rastreio(self, codigo_rastreio: str):
+    def get_rastreio(self, codigo_rastreio: str) -> Rastreio:
         url = 'https://proxyapp.correios.com.br/v2/app-validation'
         headers = {'Content-Type': 'application/json', 'User-Agent': 'Dart/2.18 (dart:io)'}
         sign = self._generate_sign()
@@ -59,9 +58,9 @@ class Correios:
         response = urlopen(request)
 
         rastreio = response.read()
-        rastreio_decoded  = json.loads(rastreio.decode('utf-8'))
+        rastreio_decoded  = rastreio.decode('utf-8')
 
-        print (rastreio_decoded)
+        return Rastreio.from_json(rastreio_decoded)
 
 
     

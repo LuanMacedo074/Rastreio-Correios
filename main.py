@@ -1,10 +1,8 @@
 from Rastreio import Rastreio
+from Correios import Correios
 import json
 
 if __name__ == '__main__':
-
-    with open("rastreio.json", 'r', encoding="utf-8") as arquivo:
-        dados_json = arquivo.read()
-        rastreio = Rastreio.from_json(dados_json)
-
-print (rastreio)
+    correios = Correios()
+    rastreio = correios.get_rastreio('TG637457002BR')
+    print (rastreio.objetos[0].codObjeto)
