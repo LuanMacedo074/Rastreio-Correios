@@ -2,12 +2,17 @@ from typing import List,Dict
 from Evento import Evento
 
 class Objeto:
-    def __init__(self, codObjeto: str, tipoPostal: Dict[str, str], dtPrevista: str, modalidade: str,
-                 peso: float, formato: str, eventos: List[Evento]):
+    def __init__(self, codObjeto: str, eventos: List[Evento], tipoPostal: Dict[str, str], habilitaAutoDeclaracao: str,
+                  permiteEncargoImportacao: str, habilitaPercorridaCarteiro: str, bloqueioObjeto: str,possuiLocker: str,
+                    habilitaLocker: str, habilitaCrowdshipping: str, temServicoAr: str):
         self.codObjeto = codObjeto
         self.tipoPostal = tipoPostal
-        self.dtPrevista = dtPrevista
-        self.modalidade = modalidade
-        self.peso = peso
-        self.formato = formato
+        self.habilitaAutoDeclaracao = habilitaAutoDeclaracao
+        self.permiteEncargoImportacao = permiteEncargoImportacao
+        self.habilitaPercorridaCarteiro = habilitaPercorridaCarteiro
+        self.bloqueioObjeto = bloqueioObjeto
+        self.possuiLocker = possuiLocker
+        self.habilitaLocker = habilitaLocker
+        self.habilitaCrowdshipping = habilitaCrowdshipping
+        self.temServicoAr = temServicoAr
         self.eventos = eventos
