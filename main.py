@@ -11,5 +11,5 @@ if __name__ == '__main__':
     
     for codigo in codigos:
         rastreio = correios.get_rastreio(f'{codigo}')
-        print(rastreio.check_change(f'rastreios/{rastreio.objetos[0].codObjeto}.json'))
+        print(rastreio.return_rastreio())
         rastreio.save_rastreio()
