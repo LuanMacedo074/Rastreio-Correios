@@ -60,29 +60,16 @@ class Rastreio:
         with open(nome_arquivo, "w", encoding='utf-8') as arquivo:
             arquivo.write(json.dumps(data, indent = 4, ensure_ascii=False))
 
-    def check_change(self, path: str) -> str:
-        if not os.path.exists(path):
-            return (f'''O Objeto {self.objetos[0].codObjeto} teve a última movimentação em:
-                    Saida: {self.objetos[0].eventos[0].unidade['endereco']['cidade'] if 
-                            'cidade' in self.objetos[0].eventos[0].unidade['endereco'] else self.objetos[0].eventos[0].unidade['nome']}
-                    Destino: {self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']['cidade'] if 
+    def return_rastreio(self) -> str:
+        return (f'''Objeto {self.objetos[0].codObjeto}:
+                Status : {self.objetos[0].eventos[0].tipo}
+                Data e Hora: {self.objetos[0].eventos[0].dtHrCriado[:10] + " " + self.objetos[0].eventos[0].dtHrCriado[11:16]}
+                Saida: {self.objetos[0].eventos[0].unidade['endereco']['cidade'] if 
+                        'cidade' in self.objetos[0].eventos[0].unidade['endereco'] else self.objetos[0].eventos[0].unidade['nome']}''' + 
+                f'''{"Destino:" + f"""{self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']['cidade'] if 
                                 'cidade' in self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']
-                                else self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']['uf'] }''')
-
-
-        with open(path, 'r')as arquivo:
-            old = json.loads(arquivo.read())
-
-        if ((self.to_dict()) == old):
-            return (f'o Objeto {self.objetos[0].codObjeto} não teve alterações desde o último rastreio')
-    
-        return (f'''O Objeto {self.objetos[0].codObjeto} teve a última movimentação em:
-                    Saida: {self.objetos[0].eventos[0].unidade['endereco']['cidade'] if 
-                            'cidade' in self.objetos[0].eventos[0].unidade['endereco'] else self.objetos[0].eventos[0].unidade['nome']}
-                    Destino: {self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']['cidade'] if 
-                                'cidade' in self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']
-                                else self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']['uf'] }''')
-
+                                else self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']['uf'] }""" if self.objetos[0].eventos[0].unidadeDestino else ""}\n''')
+                   
     
 
 
