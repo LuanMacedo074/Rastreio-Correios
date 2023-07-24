@@ -61,16 +61,20 @@ class Rastreio:
             arquivo.write(json.dumps(data, indent = 4, ensure_ascii=False))
 
     def return_rastreio(self) -> str:
-        return (f'''Objeto {self.objetos[0].codObjeto}:
-        Status : {self.objetos[0].eventos[0].tipo}
-        Data e Hora: {self.objetos[0].eventos[0].dtHrCriado[:10] + " " + self.objetos[0].eventos[0].dtHrCriado[11:16]}
-        Saida: {self.objetos[0].eventos[0].unidade['endereco']['cidade'] if 
-                        'cidade' in self.objetos[0].eventos[0].unidade['endereco'] else self.objetos[0].eventos[0].unidade['nome']}\n''' + 
-                f'''        {"Destino:" + f"""{self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']['cidade'] if 
-                                'cidade' in self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']
-                                else self.objetos[0].eventos[0].to_dict()['unidadeDestino']['endereco']['uf'] }""" if self.objetos[0].eventos[0].unidadeDestino else ""}\n''')
-                   
-    
+        objeto = self.objetos[0]
+        evento = objeto.eventos[0]
 
+        status = evento.tipo
+        data_hora = evento.dtHrCriado[:16]
+        
+        origem = evento.unidade.get('endereco', {}).get('cidade', evento.unidade.get('nome', 'Local desconhecido'))
+        
+        destino = evento.to_dict().get('unidadeDestino')
+        destino_str = f"Destino: {destino['endereco'].get('cidade', destino['endereco'].get('uf', 'Local desconhecido'))}" if destino else ""
 
-
+        return f'''Objeto {objeto.codObjeto}:
+        Status: {status}
+        Data e Hora: {data_hora}
+        Saída: {origem}
+        {destino_str}
+        '''
